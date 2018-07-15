@@ -1,108 +1,146 @@
-import expect from 'expect';
-import { createStore } from 'redux';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Immutable from 'immutable';
+const state = {
+  squares: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+  currentSquare: 0,
+};
 
-// Javascript the good parts
+const render = lState => {
+  const title = document.createElement('h1');
+  title.innerHTML = 'Totito';
+ 
+/*
+  const semaforo = document.createElement('div');
+  semaforo.className = 'semaforo';
 
-const Counter = ({ value, incrementAction, decrementAction, removeAction }) => (
-  <div>
-    <h1>{ value }</h1>
-    <button onClick={ incrementAction }>+</button>
-    <button onClick={ decrementAction }>-</button>
-    <button onClick={ removeAction }>x</button>
-  </div>
-);
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'nextBtn';
+  nextBtn.innerHTML = 'Next';
 
-const CounterList = ({ list }) => (
-  <div>
-    {
-      list.map(
-        (value, i) => (
-          <Counter
-            key={ i }
-            value={ value }
-            index={ i }
-            incrementAction={
-              () => store.dispatch({
-                type: 'INCREMENT',
-                payload: { index: i }
-              })
-            }
-            decrementAction={
-              () => store.dispatch({
-                type: 'DECREMENT',
-                payload: { index: i }
-              })
-            }
-            removeAction={
-              () => store.dispatch({
-                type: 'REMOVE_COUNTER',
-                payload: {
-                  index: i
-                }
-              })
-            }
-          />
-        )
-      )
+  
+  td.onClick = 'nextMove(this)'
+*/
+  const table = document.createElement('table');
+  table.border = 0;
+
+  const turn = 'x';
+
+  const message = document.createElement('div');
+  message.className = 'message';
+  message.innerHTML = `Es el turno de: ${turn}`;
+
+  const button = document.createElement('button');
+  button.className = 'button';
+  button.innerHTML = 'Reiniciar juego';
+
+  
+  const tr1 = document.createElement('tr');
+  const tr2 = document.createElement('tr');
+  const tr3 = document.createElement('tr');
+
+  const td1 = document.createElement('td');
+  td1.className = 'square';
+  const td2 = document.createElement('td');
+  td2.className = 'square';
+  const td3 = document.createElement('td');
+  td3.className = 'square';
+
+  const td4 = document.createElement('td');
+  td4.className = 'square';
+  const td5 = document.createElement('td');
+  td5.className = 'square';
+  const td6 = document.createElement('td');
+  td6.className = 'square';
+
+  const td7 = document.createElement('td');
+  td7.className = 'square';
+  const td8 = document.createElement('td');
+  td8.className = 'square';
+  const td9 = document.createElement('td');
+  td9.className = 'square';
+
+  
+  const x1 = 0;
+  const x2 = 0;
+  const x3 = 0;
+  const x4 = 0;
+  const x5 = 0;
+  const x6 = 0;
+  const x7 = 0;
+  const x8 = 0;
+  const x9 = 0;
+  const o1 = 0;
+  const o2 = 0;
+  const o3 = 0;
+  const o4 = 0;
+  const o5 = 0;
+  const o6 = 0;
+  const o7 = 0;
+  const o8 = 0;
+  const o9 = 0;
+
+  // Clear previous root content
+  if (root.hasChildNodes()) {
+    root.innerHTML = null;
+  }
+
+  // Main rendering
+/*
+  root.appendChild(title);
+  root.appendChild(semaforo);
+  root.appendChild(nextBtn);
+*/ 
+  root.appendChild(title);
+  root.appendChild(message);
+  
+  root.appendChild(table);
+  table.appendChild(tr1);
+  table.appendChild(tr2);
+  table.appendChild(tr3);
+  tr1.appendChild(td1);
+  tr1.appendChild(td2);
+  tr1.appendChild(td3);
+  tr2.appendChild(td4);
+  tr2.appendChild(td5);
+  tr2.appendChild(td6);
+  tr3.appendChild(td7);
+  tr3.appendChild(td8);
+  tr3.appendChild(td9);
+
+  root.appendChild(button);
+
+
+  /*
+  const lightElements = lState.lights.map(
+    (lightColor, i) => {
+      const lightElement = document.createElement('div');
+      lightElement.className = `light ${lightColor}`;
+
+      if (i === lState.currentLight) {
+        lightElement.classList.add('on');
+      }
+
+      return lightElement;
     }
-    <button onClick={ () => store.dispatch({ type: 'ADD_COUNTER' }) }>Add counter</button>
-  </div>
-);
+  );
 
-const validateIndex = (index, list) => 0 <= index && index < list.size;
+  lightElements.forEach(
+    lightElement => semaforo.appendChild(lightElement)
+  );
+*/
+  // Events
+  button.onclick = () => {
+    /*lState.currentSquare = (lState.currentSquare + 1) % lState.squares.length;
+    render(lState);*/
+    console.log('reinicio');
 
-// Reducer
-const counterList = (state = Immutable.List.of(), action) => {
+  };
+  td1.onclick = () => {
+    /*lState.currentSquare = (lState.currentSquare + 1) % lState.squares.length;
+    render(lState);*/
+    console.log('casilla');
+    td1.classList.add('onX');
+    turn = 'o';
 
-  if(typeof action.payload !== 'undefined'){
-    var { index } = action.payload;
-  }
-
-  switch(action.type){
-    case 'ADD_COUNTER':
-      return state.push(0);
-
-    case 'REMOVE_COUNTER':
-
-      if(validateIndex(index, state)){
-        return state.delete(index);
-      }
-
-      return state;
-
-    case 'INCREMENT':
-
-      if(validateIndex(index, state)){
-        return state.update(index, (v) => v + 1);
-      }
-
-      return state;
-
-    case 'DECREMENT':
-
-      if(validateIndex(index, state)){
-        return state.update(index,  (v) => v - 1);
-      }
-
-      return state;
-
-    default:
-      return state;
-  }
+  };
 }
 
-// createStore: reducer --> store
-const store = createStore(counterList);
-
-const render = () => {
-  ReactDOM.render(
-    <CounterList list={ store.getState() } />,
-    document.getElementById('root')
-  )
-}
-
-store.subscribe(render);
-render();
+render(state);

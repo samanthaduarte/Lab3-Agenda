@@ -1,0 +1,103 @@
+
+@import url('​https://fonts.google.com/?query=comfortaa');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  border-bottom: 1px solid black;
+  font-family: 'comfortaa', sans-serif;
+  
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-family: 'comfortaa', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: skyblue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: rgb(161, 228, 255)}
+
+.button:active {
+  background-color: rgb(161, 228, 255);
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+
+}
+
+.message {
+  font-family: 'comfortaa', sans-serif;
+}
+
+.square {
+  height: 90px;
+  width: 90px;
+  font-size: 45pt;
+  text-align: center;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  
+}
+
+.square:hover {
+  background-color: skyblue; 
+  color: white;
+}
+
+.square.onX {
+  background-image: url(X.png);
+}
+.square.onO {
+  background-image: url(O.png);
+}
+
+.square:last-child{
+  margin-bottom: 0;
+}
+/*
+semaforo {
+  background: black;
+  padding: 4rem;
+  width: 10rem;
+}
+
+.light {
+  border-radius: 5rem;
+  height: 10rem;
+  margin-bottom: 2rem;
+  opacity: 0.2;
+  width: 10rem;
+}
+
+.light.on {
+  opacity: 1.0;
+}
+
+.light:last-child {
+  margin-bottom: 0;
+}
+
+.light.red { background: red; }
+.light.yellow { background: yellow; }
+.light.green { background: green; }
+
+.nextBtn {
+  font-size: 3rem;
+  padding: 1rem 0;
+  text-align: center;
+  width: 18rem;
+}
+*/
