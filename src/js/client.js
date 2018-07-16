@@ -264,190 +264,190 @@ const render = lState => {
 
   td1.onclick = () => {
     if(hasWon == false && x1 == false && o1 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td1.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x1 = true;
         counter++;
       }
       else{
         td1.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o1 = true;
         counter++;
       }
       won();
       console.log(counter);
     } 
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   }; 
   
   td2.onclick = () => {
     console.log(turn);
     if(hasWon == false && x2 == false && o2 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td2.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x2 = true;
         counter++;
       }
       else{
         td2.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o2 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td3.onclick = () => {
     console.log(turn);
     if(hasWon == false && x3 == false && o3 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td3.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x3 = true;
         counter++;
       }
       else{
         td3.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o3 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td4.onclick = () => {
     console.log(turn);
     if(hasWon == false && x4 == false && o4 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td4.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x4 = true;
         counter++;
       }
       else{
         td4.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o4 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td5.onclick = () => {
     console.log(turn);
     if(hasWon == false && x5 == false && o5 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td5.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x5 = true;
         counter++;
       }
       else{
         td5.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o5 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td6.onclick = () => {
     console.log(turn);
     if(hasWon == false && x6 == false && o6 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td6.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x6 = true;
         counter++;
       }
       else{
         td6.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o6 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td7.onclick = () => {
     console.log(turn);
     if(hasWon == false && x7 == false && o7 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td7.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x7 = true;
         counter++;
       }
       else{
         td7.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o7 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td8.onclick = () => {
     console.log(turn);
     if(hasWon == false && x8 == false && o8 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td8.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x8 = true;
         counter++;
       }
       else{
         td8.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o8 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
   
   td9.onclick = () => {
     console.log(turn);
     if(hasWon == false && x9 == false && o9 == false){
-      if(turn == "X"){
+      if(lState.currentSquare == "X"){
         td9.classList.add('onX');    
-        turn = "O";
+        lState.currentSquare = lState.turn[1];
         x9 = true;
         counter++;
       }
       else{
         td9.classList.add('onO');    
-        turn = "X";
+        lState.currentSquare = lState.turn[0];
         o9 = true;
         counter++;
       }
       won();
       console.log(counter);
     }  
-    message.innerHTML = `Es el turno de ${turn}`;
+    message.innerHTML = `Es el turno de ${lState.currentSquare}`;
   };
 }
 render(state);
