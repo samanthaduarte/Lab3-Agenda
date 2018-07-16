@@ -49,7 +49,7 @@ const render = lState => {
   // Verifies if someone already won
   let hasWon = false;
 
-  // Free or occupied spaces
+  // Free space indicators
   let x1 = false;
   let x2 = false;
   let x3 = false;
@@ -96,25 +96,30 @@ const render = lState => {
 
   // Won or lost
   let won = () => {
-    
     // O
     if (o1 == true && o2 == true && o3 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td1.classList.add('won');
       td2.classList.add('won');
       td3.classList.add('won');
     }
     if (o4 == true && o5 == true && o6 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td4.classList.add('won');
       td5.classList.add('won');
       td6.classList.add('won');
     }
     if (o7 == true && o8 == true && o9 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td7.classList.add('won');
       td8.classList.add('won');
       td9.classList.add('won');
@@ -122,21 +127,27 @@ const render = lState => {
 
     if (o1 == true && o4 == true && o7 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td1.classList.add('won');
       td4.classList.add('won');
       td7.classList.add('won');
     }
     if (o2 == true && o5 == true && o8 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td2.classList.add('won');
       td5.classList.add('won');
       td8.classList.add('won');
     }
     if (o3 == true && o6 == true && o9 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td3.classList.add('won');
       td6.classList.add('won');
       td9.classList.add('won');
@@ -144,14 +155,18 @@ const render = lState => {
 
     if (o1 == true && o5 == true && o9 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td1.classList.add('won');
       td5.classList.add('won');
       td9.classList.add('won');
     }
     if (o7 == true && o5 == true && o3 == true){
       message.innerHTML = "O HA GANADO";
+      hasWon = true;
       console.log("O ha ganado");
+      console.log(hasWon);
       td7.classList.add('won');
       td5.classList.add('won');
       td3.classList.add('won');
@@ -161,21 +176,27 @@ const render = lState => {
     // X
     if (x1 == true && x2 == true && x3 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td1.classList.add('won');
       td2.classList.add('won');
       td3.classList.add('won');
     }
     if (x4 == true && x5 == true && x6 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td4.classList.add('won');
       td5.classList.add('won');
       td6.classList.add('won');
     }
     if (x7 == true && x8 == true && x9 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td7.classList.add('won');
       td8.classList.add('won');
       td9.classList.add('won');
@@ -183,21 +204,27 @@ const render = lState => {
 
     if (x1 == true && x4 == true && x7 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td1.classList.add('won');
       td4.classList.add('won');
       td7.classList.add('won');
     }
     if (x2 == true && x5 == true && x8 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td2.classList.add('won');
       td5.classList.add('won');
       td8.classList.add('won');
     }
     if (x3 == true && x6 == true && x9 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td3.classList.add('won');
       td6.classList.add('won');
       td9.classList.add('won');
@@ -205,14 +232,18 @@ const render = lState => {
 
     if (x1 == true && x5 == true && x9 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td1.classList.add('won');
       td5.classList.add('won');
       td9.classList.add('won');
     }
     if (x7 == true && x5 == true && x3 == true){
       message.innerHTML = "X HA GANADO";
+      hasWon = true;
       console.log("X ha ganado");
+      console.log(hasWon);
       td7.classList.add('won');
       td5.classList.add('won');
       td3.classList.add('won');
@@ -220,7 +251,7 @@ const render = lState => {
     if (counter == 9){
       message.innerHTML = "EMPATE";
       console.log("empate");
-    }
+      hasWon = true;}
   }
 
   // Events
@@ -232,6 +263,7 @@ const render = lState => {
 
   td1.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x1 == false && o1 == false){
       if(turn == "X"){
         td1.classList.add('onX');    
         turn = "O";
@@ -246,10 +278,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    } 
   }; 
   
   td2.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x2 == false && o2 == false){
       if(turn == "X"){
         td2.classList.add('onX');    
         turn = "O";
@@ -264,10 +298,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td3.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x3 == false && o3 == false){
       if(turn == "X"){
         td3.classList.add('onX');    
         turn = "O";
@@ -282,10 +318,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td4.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x4 == false && o4 == false){
       if(turn == "X"){
         td4.classList.add('onX');    
         turn = "O";
@@ -300,10 +338,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td5.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x5 == false && o5 == false){
       if(turn == "X"){
         td5.classList.add('onX');    
         turn = "O";
@@ -318,10 +358,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td6.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x6 == false && o6 == false){
       if(turn == "X"){
         td6.classList.add('onX');    
         turn = "O";
@@ -336,10 +378,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td7.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x7 == false && o7 == false){
       if(turn == "X"){
         td7.classList.add('onX');    
         turn = "O";
@@ -354,10 +398,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td8.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x8 == false && o8 == false){
       if(turn == "X"){
         td8.classList.add('onX');    
         turn = "O";
@@ -372,10 +418,12 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
   
   td9.onclick = () => {
     console.log(turn);
+    if(hasWon == false && x9 == false && o9 == false){
       if(turn == "X"){
         td9.classList.add('onX');    
         turn = "O";
@@ -390,15 +438,9 @@ const render = lState => {
       }
       won();
       console.log(counter);
+    }  
   };
-  
-
-  
-
-  
-   
 }
-
 render(state);
 
 
