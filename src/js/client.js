@@ -14,7 +14,7 @@ const render = lState => {
 
   const message = document.createElement('div');
   message.className = 'message';
-  message.innerHTML = `Es el turno de: ${turn}`;
+  message.innerHTML = "Bienvenido al Totito";
 
   const button = document.createElement('button');
   button.className = 'button';
@@ -248,7 +248,7 @@ const render = lState => {
       td5.classList.add('won');
       td3.classList.add('won');
     }
-    if (counter == 9){
+    if (counter == 9 && hasWon == false){
       message.innerHTML = "EMPATE";
       console.log("empate");
       hasWon = true;}
@@ -256,13 +256,13 @@ const render = lState => {
 
   // Events
   button.onclick = () => {
+    // Restart game
     render(lState);
-    console.log('reinicio');
-
   };
 
+
+
   td1.onclick = () => {
-    console.log(turn);
     if(hasWon == false && x1 == false && o1 == false){
       if(turn == "X"){
         td1.classList.add('onX');    
@@ -279,6 +279,7 @@ const render = lState => {
       won();
       console.log(counter);
     } 
+    message.innerHTML = `Es el turno de ${turn}`;
   }; 
   
   td2.onclick = () => {
@@ -299,6 +300,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td3.onclick = () => {
@@ -319,6 +321,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td4.onclick = () => {
@@ -339,6 +342,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td5.onclick = () => {
@@ -359,6 +363,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td6.onclick = () => {
@@ -379,6 +384,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td7.onclick = () => {
@@ -399,6 +405,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td8.onclick = () => {
@@ -419,6 +426,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
   
   td9.onclick = () => {
@@ -439,6 +447,7 @@ const render = lState => {
       won();
       console.log(counter);
     }  
+    message.innerHTML = `Es el turno de ${turn}`;
   };
 }
 render(state);
