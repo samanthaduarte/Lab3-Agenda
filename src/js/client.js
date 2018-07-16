@@ -6,7 +6,7 @@ const state = {
 const render = lState => {
   const title = document.createElement('h1');
   title.innerHTML = 'Totito';
- 
+
   const table = document.createElement('table');
   table.border = 0;
 
@@ -20,25 +20,22 @@ const render = lState => {
   button.className = 'button';
   button.innerHTML = 'Reiniciar juego';
 
-  
+  // Table elements
   const tr1 = document.createElement('tr');
   const tr2 = document.createElement('tr');
   const tr3 = document.createElement('tr');
-
   const td1 = document.createElement('td');
   td1.className = 'square';
   const td2 = document.createElement('td');
   td2.className = 'square';
   const td3 = document.createElement('td');
   td3.className = 'square';
-
   const td4 = document.createElement('td');
   td4.className = 'square';
   const td5 = document.createElement('td');
   td5.className = 'square';
   const td6 = document.createElement('td');
   td6.className = 'square';
-
   const td7 = document.createElement('td');
   td7.className = 'square';
   const td8 = document.createElement('td');
@@ -46,9 +43,13 @@ const render = lState => {
   const td9 = document.createElement('td');
   td9.className = 'square';
 
-  let counterX = 0;
-  let counterO = 0;
+  // Moves counter
+  let counter = 0;
 
+  // Verifies if someone already won
+  let hasWon = false;
+
+  // Free or occupied spaces
   let x1 = false;
   let x2 = false;
   let x3 = false;
@@ -68,7 +69,6 @@ const render = lState => {
   let o8 = false;
   let o9 = false;
   
-  
   // Clear previous root content
   if (root.hasChildNodes()) {
     root.innerHTML = null;
@@ -78,7 +78,6 @@ const render = lState => {
 
   root.appendChild(title);
   root.appendChild(message);
-  
   root.appendChild(table);
   table.appendChild(tr1);
   table.appendChild(tr2);
@@ -218,7 +217,10 @@ const render = lState => {
       td5.classList.add('won');
       td3.classList.add('won');
     }
-
+    if (counter == 9){
+      message.innerHTML = "EMPATE";
+      console.log("empate");
+    }
   }
 
   // Events
@@ -234,14 +236,16 @@ const render = lState => {
         td1.classList.add('onX');    
         turn = "O";
         x1 = true;
+        counter++;
       }
       else{
         td1.classList.add('onO');    
         turn = "X";
         o1 = true;
+        counter++;
       }
       won();
-      console.log(x1,o1);
+      console.log(counter);
   }; 
   
   td2.onclick = () => {
@@ -250,14 +254,16 @@ const render = lState => {
         td2.classList.add('onX');    
         turn = "O";
         x2 = true;
+        counter++;
       }
       else{
         td2.classList.add('onO');    
         turn = "X";
         o2 = true;
+        counter++;
       }
       won();
-      console.log(x2,o2);
+      console.log(counter);
   };
   
   td3.onclick = () => {
@@ -266,14 +272,16 @@ const render = lState => {
         td3.classList.add('onX');    
         turn = "O";
         x3 = true;
+        counter++;
       }
       else{
         td3.classList.add('onO');    
         turn = "X";
         o3 = true;
+        counter++;
       }
       won();
-      console.log(x3,o3);
+      console.log(counter);
   };
   
   td4.onclick = () => {
@@ -282,14 +290,16 @@ const render = lState => {
         td4.classList.add('onX');    
         turn = "O";
         x4 = true;
+        counter++;
       }
       else{
         td4.classList.add('onO');    
         turn = "X";
         o4 = true;
+        counter++;
       }
       won();
-      console.log(x4,o4);
+      console.log(counter);
   };
   
   td5.onclick = () => {
@@ -298,14 +308,16 @@ const render = lState => {
         td5.classList.add('onX');    
         turn = "O";
         x5 = true;
+        counter++;
       }
       else{
         td5.classList.add('onO');    
         turn = "X";
         o5 = true;
+        counter++;
       }
       won();
-      console.log(x5,o5);
+      console.log(counter);
   };
   
   td6.onclick = () => {
@@ -314,14 +326,16 @@ const render = lState => {
         td6.classList.add('onX');    
         turn = "O";
         x6 = true;
+        counter++;
       }
       else{
         td6.classList.add('onO');    
         turn = "X";
         o6 = true;
+        counter++;
       }
       won();
-      console.log(x6,o6);
+      console.log(counter);
   };
   
   td7.onclick = () => {
@@ -330,14 +344,16 @@ const render = lState => {
         td7.classList.add('onX');    
         turn = "O";
         x7 = true;
+        counter++;
       }
       else{
         td7.classList.add('onO');    
         turn = "X";
         o7 = true;
+        counter++;
       }
       won();
-      console.log(x7,o7);
+      console.log(counter);
   };
   
   td8.onclick = () => {
@@ -346,14 +362,16 @@ const render = lState => {
         td8.classList.add('onX');    
         turn = "O";
         x8 = true;
+        counter++;
       }
       else{
         td8.classList.add('onO');    
         turn = "X";
         o8 = true;
+        counter++;
       }
       won();
-      console.log(x8,o8);
+      console.log(counter);
   };
   
   td9.onclick = () => {
@@ -362,14 +380,16 @@ const render = lState => {
         td9.classList.add('onX');    
         turn = "O";
         x9 = true;
+        counter++;
       }
       else{
         td9.classList.add('onO');    
         turn = "X";
         o9 = true;
+        counter++;
       }
       won();
-      console.log(x9,o9);
+      console.log(counter);
   };
   
 

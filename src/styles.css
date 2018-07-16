@@ -1,4 +1,3 @@
-
 @import url('​https://fonts.google.com/?query=comfortaa');
 
 body {
@@ -69,6 +68,16 @@ h1 {
 
 .square.won{
   background-color: skyblue;
+  animation-name: animWon;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animWon {
+  0%   {background-color: violet;}
+  25%  {background-color: skyblue;}
+  50%  {background-color: violet;}
+  100%  {background-color: skyblue;}
 }
 
 /*
