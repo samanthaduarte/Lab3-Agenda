@@ -1,20 +1,18 @@
 const state = {
-  turn: ['X', 'O'],
-  currentSquare: 0,
+  taskList: [],
+  filters: ['all', 'completed','active'],
+  currentFilter: 'all',
+  loading: true,
 };
 
 const render = lState => {
 
-  
-  const agenda = document.createElement('div');
-  agenda.className = 'agenda';
-
   const topBar = document.createElement('div');
-  topBar.className = 'topBar';
-  const taskList = document.createElement('div');
-  taskList.className = 'tasklist';
-  const input = document.createElement('div');
-  input.className = 'input';
+  topBar.className = 'topbar';
+  const tasks = document.createElement('ul');
+  tasks.className = 'tasks';
+  const bottomBar = document.createElement('div');
+  bottomBar.className = 'bottombar';
 
   const allBtn = document.createElement('button');
   allBtn.className = 'button';
@@ -26,9 +24,11 @@ const render = lState => {
   activeBtn.className = 'button';
   activeBtn.innerHTML = 'Active';
 
-  const text = document.createElement('input');
-  text.className = 'text';
-  text.innerHTML = 'Add a task here';
+  const taskInput = document.createElement('input');
+  taskInput.className = 'taskinput';
+  taskInput.setAttribute("type", "text");
+  taskInput.textContent = 'Add new task';
+  const taskTxt = document.getElementsByClassName("taskinput").value;
   const addBtn = document.createElement('button');
   addBtn.className = 'addbutton';
   addBtn.innerHTML = 'Add';
@@ -37,30 +37,44 @@ const render = lState => {
   if (root.hasChildNodes()) {
     root.innerHTML = null;
   }
-// ul con varios li y adentro de ellos hay un button
   // Main rendering
-
-  root.appendChild(agenda);
-  agenda.appendChild(topBar);
-  agenda.appendChild(taskList);
-  agenda.appendChild(input);
+  root.appendChild(topBar);
+  root.appendChild(tasks);
+  root.appendChild(bottomBar);
 
   topBar.appendChild(allBtn);
   topBar.appendChild(completedBtn);
   topBar.appendChild(activeBtn);
 
-  //taskList.appendChild(task);
+  //tasks.appendChild(task);
 
-  input.appendChild(text);
-  input.appendChild(addBtn);
+  bottomBar.appendChild(taskInput);
+  bottomBar.appendChild(addBtn);
 
 
   // Events
-  /*
-  button.onclick = () => {
-    render(lState);
+  
+  addBtn.onclick = () => {
+    console.log(taskTxt);
+    lState.taskList.push(taskTxt);
+    console.log(lState.taskList);
+    const task = document.createElement('li');
+    task.textContent  = `Tarea:  ${taskTxt}`;
+    tasks.appendChild(task);
   };
-  */
+  allBtn.onclick = () => {
+    console.log("all");
+    lState.currentFilter = lState.filters['all'];
+  };
+  completedBtn.onclick = () => {
+    console.log("completed");
+    lState.currentFilter = lState.filters['completed'];
+  };
+  activeBtn.onclick = () => {
+    console.log("active");
+    lState.currentFilter = lState.filters['active'];
+  };
+  
 
 }
 render(state);

@@ -2,61 +2,84 @@ body{
     background-color: gainsboro;
 }
 
-.agenda{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .topbar{
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-    width: 50%;
+    padding: auto;
+    width: 100%;
+    margin: auto;
 }
-.tasklist{
-    display: flex;
-    flex-direction: column;
+.tasks ul{
     align-items: center;
-    padding: 1rem;
-    width: 50%;
-}
-.input{
-    background-color: white;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-    width: 50%;
+    padding: auto;
+    width: 70%;
+    overflow: scroll;
+}
+.tasks li {
+    font-style: inherit;
+    color: black;
 }
 
-/* Botones */
+.bottombar{
+    align-items: center;
+    background-color: white;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+}
+
+/* Buttons */
 .button {
     background-color: white;
-    border: none;
     border-radius: 8px;
+    border: none;
     color: gray;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 1rem;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
     width: 30%;
 }
 
 .addbutton {
     background-color: #4CAF50;
-    border: none;
     border-radius: 8px;
+    border: none;
     color: white;
-    padding: 2rem, 2rem 0 0;
+    box-shadow: 0 5px #999;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 0.2rem;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 15%;
+}
+
+.addbutton:active {
+    background-color: rgb(53, 134, 56);
+    box-shadow: 0 1.5px #666;
+    transform: translateY(4px);
+}
+
+/* Input bar */
+.taskinput{
+    overflow: scroll;
+    padding: 0.5rem;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 80%;
+
 }
