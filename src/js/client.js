@@ -5,6 +5,19 @@ const state = {
   loading: true,
 };
 
+
+const request = fetch('https://raw.githubusercontent.com/samuelchvez/todos-fake-json-api/master/db.json');
+request
+    .then(result => result.json())
+    .then(resultJson => {
+        state.taskList = resultJson;
+        console.log(state)
+    })
+    .then(() => {
+        state.loading = false,
+            console.log(state)
+});
+
 const render = lState => {
 
   const topBar = document.createElement('div');
@@ -56,33 +69,41 @@ const render = lState => {
     taskTxt = taskInput.value;
     console.log(`Se agrego una tarea ${taskTxt}`);
 
-    // Add task to array
-    lState.taskList.push(taskTxt);
+    // Add task to array and add nonselected attribute
+    let isSelected = false;
+    let elementTask = new Array(taskTxt, isSelected);
+    lState.taskList.push(elementTask);
+    lState.currentFilter
     console.log(lState.taskList);
+
     // Create element to show task
     let task = document.createElement('li');
     task.textContent  = taskTxt;
     tasks.appendChild(task);
+
     // Allow task to be selected
     task.onclick = () => {
+      // Show task in different color
       task.classList.add('selected');
+      // Change isSelected value to true
+      isSelected = true;
+      console.log(lState.taskList);
     };
   };
 
-  // Mostrar todos
+  // Show all tasks
   allBtn.onclick = () => {
     console.log("all");
     lState.currentFilter = lState.filters['all'];
-    
   };
 
-  // Mostrar los seleccionados
+  // Show all selected tasks
   completedBtn.onclick = () => {
     console.log("completed");
     lState.currentFilter = lState.filters['completed'];
   };
 
-  // Mostrar todos menos los seleccionados
+  // Show all non selected tasks
   activeBtn.onclick = () => {
     console.log("active");
     lState.currentFilter = lState.filters['active'];
