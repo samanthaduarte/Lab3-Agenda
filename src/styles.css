@@ -1,5 +1,5 @@
 body{
-    background-color: gainsboro;
+    background-color: rgb(209, 201, 190);
 }
 
 
@@ -20,9 +20,18 @@ body{
     overflow: scroll;
 }
 .tasks li {
-    font-style: inherit;
-    color: black;
+    color: white;
 }
+.tasks li:hover {
+    color: black;
+    background-color: rgb(173, 235, 173);
+}
+.tasks li.selected {
+    text-decoration: line-through;
+    color: rgb(59, 143, 62);
+    background-color: rgb(99, 212, 102);
+}
+
 
 .bottombar{
     align-items: center;

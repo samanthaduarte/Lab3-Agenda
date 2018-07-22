@@ -24,11 +24,10 @@ const render = lState => {
   activeBtn.className = 'button';
   activeBtn.innerHTML = 'Active';
 
-  const taskInput = document.createElement('input');
+  let taskInput = document.createElement('input');
   taskInput.className = 'taskinput';
   taskInput.setAttribute("type", "text");
-  taskInput.textContent = 'Add new task';
-  const taskTxt = document.getElementsByClassName("taskinput").value;
+  let taskTxt;
   const addBtn = document.createElement('button');
   addBtn.className = 'addbutton';
   addBtn.innerHTML = 'Add';
@@ -51,30 +50,44 @@ const render = lState => {
   bottomBar.appendChild(taskInput);
   bottomBar.appendChild(addBtn);
 
-
   // Events
   
   addBtn.onclick = () => {
-    console.log(taskTxt);
+    taskTxt = taskInput.value;
+    console.log(`Se agrego una tarea ${taskTxt}`);
+
+    // Add task to array
     lState.taskList.push(taskTxt);
     console.log(lState.taskList);
-    const task = document.createElement('li');
-    task.textContent  = `Tarea:  ${taskTxt}`;
+    // Create element to show task
+    let task = document.createElement('li');
+    task.textContent  = taskTxt;
     tasks.appendChild(task);
+    // Allow task to be selected
+    task.onclick = () => {
+      task.classList.add('selected');
+    };
   };
+
+  // Mostrar todos
   allBtn.onclick = () => {
     console.log("all");
     lState.currentFilter = lState.filters['all'];
+    
   };
+
+  // Mostrar los seleccionados
   completedBtn.onclick = () => {
     console.log("completed");
     lState.currentFilter = lState.filters['completed'];
   };
+
+  // Mostrar todos menos los seleccionados
   activeBtn.onclick = () => {
     console.log("active");
     lState.currentFilter = lState.filters['active'];
   };
-  
+
 
 }
 render(state);
