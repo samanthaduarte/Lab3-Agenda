@@ -18,6 +18,7 @@ body{
     padding: auto;
     width: 70%;
     overflow: scroll;
+    list-style-position: inside;
 }
 .tasks li {
     color: white;
