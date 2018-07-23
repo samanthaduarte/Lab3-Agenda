@@ -6,7 +6,7 @@ const state = {
   loading: true,
 };
 
-
+/*
 const request = fetch('https://raw.githubusercontent.com/samuelchvez/todos-fake-json-api/master/db.json');
 
 request
@@ -19,6 +19,7 @@ request
         state.loading = false,
             console.log(state)
 });
+*/
 
 const render = lState => {
 
@@ -46,7 +47,7 @@ const render = lState => {
   let taskInput = document.createElement('input');
   taskInput.className = 'taskinput';
   taskInput.setAttribute("type", "text");
-  let taskTxt;
+
 
   // Clear previous root content
   if (root.hasChildNodes()) {
@@ -62,16 +63,58 @@ const render = lState => {
   topBar.appendChild(activeBtn);
   bottomBar.appendChild(taskInput);
   bottomBar.appendChild(addBtn);
-/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+  let taskTxt;
+
+  // Show elements in array
+  if (lState.taskList.length>0){
+    for(let i = 0; i<lState.taskList.length; i++){
+      // Create element to show task
+      let task = document.createElement('li');
+      task.textContent  = lState.taskList[i][0];
+      tasks.appendChild(task);
+
+      // Allow task to be selected
+      task.onclick = () => {
+        // Show task in different color
+        task.classList.add('selected');
+        // Change isSelected value to true
+        elementTask[1] = true;
+        console.log(lState.taskList);
+      };
+
+    }
+  }
+
+
+  /*
   let manageTasks = () => {
 
   }
 */
 
+
+
+
+
+
+
   // Events
 
   addBtn.onclick = () => {
-    render(lState);
+    
     taskTxt = taskInput.value;
     console.log(taskTxt);
 
@@ -83,10 +126,12 @@ const render = lState => {
     lState.taskList.push(elementTask);
     console.log(lState.taskList);
 
-    // Create element to show task
-    let task = document.createElement('li');
-    task.textContent  = taskTxt;
-    tasks.appendChild(task);
+   // for(let i = 0; i<lState.taskList.length; i++){
+      // Create element to show task
+      let task = document.createElement('li');
+      task.textContent  = taskTxt;
+      tasks.appendChild(task);
+   // }
 
     // Allow task to be selected
     task.onclick = () => {
@@ -97,12 +142,13 @@ const render = lState => {
       console.log(lState.taskList);
 
     };
+    render(lState);
 
   };
 
   // Show all tasks
   allBtn.onclick = () => {
-    render(lState);
+    
     console.log("all");
     lState.currentFilter = lState.filters['all'];
     
@@ -112,11 +158,12 @@ const render = lState => {
       task.textContent  = lState.taskList[i][0];
       tasks.appendChild(task);
     }
+    render(lState);
   };
 
   // Show all selected tasks
   completedBtn.onclick = () => {
-    render(lState);
+    
     console.log("completed");
     lState.currentFilter = lState.filters['completed'];
     
@@ -130,11 +177,12 @@ const render = lState => {
         tasks.appendChild(task);
       }
     }
+    render(lState);
   };
 
   // Show all non selected tasks
   activeBtn.onclick = () => {
-    render(lState);
+
     console.log("active");
     lState.currentFilter = lState.filters['active'];
     
@@ -147,6 +195,7 @@ const render = lState => {
         tasks.appendChild(task);
       }
     }
+    render(lState);
   };
 
 

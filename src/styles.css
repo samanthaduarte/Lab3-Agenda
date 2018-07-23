@@ -1,93 +1,111 @@
 body{
-    background-color: rgb(209, 201, 190);
+  background-color: rgb(209, 201, 190);
 }
 
 .topbar{
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    padding: auto;
-    width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding: auto;
+  width: 100%;
 }
 .tasks ul{
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    list-style-position: inside;
-    overflow: scroll;
-    padding: auto;
-    width: 70%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  list-style-position: inside;
+  overflow: scroll;
+  padding: auto;
+  width: 70%;
 }
 .tasks li {
-    color: white;
+  color: white;
 }
 .tasks li:hover {
-    background-color: rgb(173, 235, 173);
-    color: black;
+  background-color: rgb(173, 235, 173);
+  color: black;
 }
 .tasks li.selected {
-    background-color: rgb(99, 212, 102);
-    color: rgb(59, 143, 62);
-    text-decoration: line-through;
+  background-color: rgb(99, 212, 102);
+  color: rgb(59, 143, 62);
+  text-decoration: line-through;
 }
 
 
 .bottombar{
-    align-items: center;
-    background-color: white;
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
-    left: 0;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
+  align-items: center;
+  background-color: white;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
 }
 
 /* Buttons */
 .button {
-    background-color: white;
-    border-radius: 8px;
-    border: none;
-    color: gray;
-    display: inline-block;
-    font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-    text-align: center;
-    text-decoration: none;
-    width: 30%;
+  background-color: white;
+  border-radius: 8px;
+  border: none;
+  color: gray;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  width: 30%;
 }
 
 .addbutton {
-    background-color: #4CAF50;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 5px #999;
-    color: white;
-    display: inline-block;
-    font-size: 16px;
-    margin-left: 3%;
-    margin-right: 3%;
-    padding: 0.2rem;
-    text-align: center;
-    text-decoration: none;
-    width: 15%;
+  background-color: #4CAF50;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 5px #999;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 3%;
+  margin-right: 3%;
+  padding: 0.2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 15%;
 }
 
 .addbutton:active {
-    background-color: rgb(53, 134, 56);
-    box-shadow: 0 1.5px #666;
-    transform: translateY(4px);
+  background-color: rgb(53, 134, 56);
+  box-shadow: 0 1.5px #666;
+  transform: translateY(4px);
 }
 
 /* Input bar */
 .taskinput{
-    margin-left: 3%;
-    margin-right: 3%;
-    overflow: scroll;
-    padding: 0.5rem;
-    width: 80%;
+
+  margin-left: 3%;
+  margin-right: 3%;
+  overflow: scroll;
+  padding: 0.5rem;
+  width: 80%;
 }
+
+
+/*
+recorrer el array
+  para cada tarea
+    crear un html element para mostrar
+    mostrar el txt del elemento del array en el html element
+    permitir al html ser pintado
+    // si el texto del html actual es igual al de algun elemento
+    // del array, entonces volver true a ese elemento del array
+
+addBtn
+
+
+
+
+*/
