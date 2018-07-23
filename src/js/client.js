@@ -1,6 +1,5 @@
 const state = {
   taskList: [],
-  currentTask: 0,
   filters: ['all', 'completed','active'],
   currentFilter: 'all',
   loading: true,
@@ -88,6 +87,7 @@ const render = lState => {
             lState.taskList[i][1] = true;
           }
           console.log(lState.taskList);
+          render(lState);
         };
       }
     }
@@ -113,6 +113,7 @@ const render = lState => {
               lState.taskList[i][1] = true;
             }
             console.log(lState.taskList);
+            render(lState);
           };
         } 
       }
@@ -138,6 +139,7 @@ const render = lState => {
               lState.taskList[i][1] = true;
             }
             console.log(lState.taskList);
+            render(lState);
           };
         } 
       }
