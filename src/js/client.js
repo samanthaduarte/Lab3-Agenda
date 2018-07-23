@@ -8,6 +8,7 @@ const state = {
 
 
 const request = fetch('https://raw.githubusercontent.com/samuelchvez/todos-fake-json-api/master/db.json');
+
 request
     .then(result => result.json())
     .then(resultJson => {
@@ -61,13 +62,18 @@ const render = lState => {
   topBar.appendChild(activeBtn);
   bottomBar.appendChild(taskInput);
   bottomBar.appendChild(addBtn);
+/*
+  let manageTasks = () => {
+
+  }
+*/
 
   // Events
-  
-  addBtn.onclick = () => {
 
+  addBtn.onclick = () => {
+    render(lState);
     taskTxt = taskInput.value;
-    console.log(`Se agrego una tarea ${taskTxt}`);
+    console.log(taskTxt);
 
     // Delete input box content
     taskInput.value = '';
@@ -92,29 +98,15 @@ const render = lState => {
 
     };
 
-    // Show all tasks
-    allBtn.onclick = () => {
-      console.log("all");
-      lState.currentFilter = lState.filters['all'];
-      render(lState);
-      for(let i = 0; i<lState.taskList.length; i++){
-        console.log(lState.taskList[i][0]);
-        // Create element to show task from array
-        task.textContent  = lState.taskList[i][0];
-        console.log(task.textContent);
-        tasks.appendChild(task);
-      }
-    };
-
   };
-/*
+
   // Show all tasks
   allBtn.onclick = () => {
+    render(lState);
     console.log("all");
     lState.currentFilter = lState.filters['all'];
-    render(lState);
+    
     for(let i = 0; i<lState.taskList.length; i++){
-      console.log(lState.taskList[i]);
       // Create element to show task
       let task = document.createElement('li');
       task.textContent  = lState.taskList[i][0];
@@ -122,26 +114,39 @@ const render = lState => {
     }
   };
 
-*/
   // Show all selected tasks
   completedBtn.onclick = () => {
+    render(lState);
     console.log("completed");
     lState.currentFilter = lState.filters['completed'];
-    render(lState);
-    tasks.appendChild(document.getElementsByClassName('selected'));
+    
+    for(let i = 0; i<lState.taskList.length; i++){
+      if (lState.taskList[i][1] == true){
+        // Create element to show task
+        let task = document.createElement('li');
+        task.textContent  = lState.taskList[i][0];
+        // Show task in different color
+        task.classList.add('selected');
+        tasks.appendChild(task);
+      }
+    }
   };
 
   // Show all non selected tasks
   activeBtn.onclick = () => {
+    render(lState);
     console.log("active");
     lState.currentFilter = lState.filters['active'];
-    render(lState);
+    
     for(let i = 0; i<lState.taskList.length; i++){
-      if (lState.taskList[i]){
-        tasks.appendChild();
+      if (lState.taskList[i][1] == false){
+        // Create element to show task
+        let task = document.createElement('li');
+        task.textContent  = lState.taskList[i][0];
+
+        tasks.appendChild(task);
       }
     }
-    
   };
 
 

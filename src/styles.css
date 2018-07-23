@@ -2,35 +2,34 @@ body{
     background-color: rgb(209, 201, 190);
 }
 
-
 .topbar{
     align-items: center;
     display: flex;
     flex-direction: row;
+    margin: auto;
     padding: auto;
     width: 100%;
-    margin: auto;
 }
 .tasks ul{
     align-items: center;
     display: flex;
     flex-direction: row;
+    list-style-position: inside;
+    overflow: scroll;
     padding: auto;
     width: 70%;
-    overflow: scroll;
-    list-style-position: inside;
 }
 .tasks li {
     color: white;
 }
 .tasks li:hover {
-    color: black;
     background-color: rgb(173, 235, 173);
+    color: black;
 }
 .tasks li.selected {
-    text-decoration: line-through;
-    color: rgb(59, 143, 62);
     background-color: rgb(99, 212, 102);
+    color: rgb(59, 143, 62);
+    text-decoration: line-through;
 }
 
 
@@ -66,8 +65,8 @@ body{
     background-color: #4CAF50;
     border-radius: 8px;
     border: none;
-    color: white;
     box-shadow: 0 5px #999;
+    color: white;
     display: inline-block;
     font-size: 16px;
     margin-left: 3%;
@@ -86,10 +85,9 @@ body{
 
 /* Input bar */
 .taskinput{
-    overflow: scroll;
-    padding: 0.5rem;
     margin-left: 3%;
     margin-right: 3%;
+    overflow: scroll;
+    padding: 0.5rem;
     width: 80%;
-
 }
