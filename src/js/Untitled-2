@@ -1,0 +1,24 @@
+const state = {
+  tasks: [], //name and state
+  currentSort: 0, //it can be 0,1,2
+  isLoading: false //if the data is loading
+};
+
+//FETCH 
+const solicitud = fetch('https://raw.githubusercontent.com/samuelchvez/todos-fake-json-api/master/db.json');
+
+//Then
+solicitud
+  .then(resultado => resultado.json())
+  .then(resultadoJSON => {
+    for (let i = 0; i < resultadoJSON.length; i = i + 1) {
+      state.tasks.push([resultadoJSON[i].title, resultadoJSON[i].isCompleted]);
+      console.log(state.tasks[i]);
+    }
+  })
+  .then(() => render(state))
+  .catch((err) => {
+    // Handle any error that occurred in any of the previous
+    // promises in the chain.
+    alert("Oops an error has occurred");
+});

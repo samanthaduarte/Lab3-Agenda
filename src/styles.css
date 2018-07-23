@@ -10,11 +10,23 @@ body{
   padding: auto;
   width: 100%;
 }
+.message{
+  visibility: hidden;
+}
+.message.visible{
+  visibility: visible;
+}
+
+.tasks{
+  list-style-type: none;
+}
+
 .tasks ul{
   align-items: center;
   display: flex;
   flex-direction: row;
   list-style-position: inside;
+
   overflow: scroll;
   padding: auto;
   width: 70%;
@@ -97,15 +109,19 @@ body{
 /*
 recorrer el array
   para cada tarea
-    crear un html element para mostrar
-    mostrar el txt del elemento del array en el html element
+    crear un html element para mostrar el txt del elemento del array en el html element
     permitir al html ser pintado
     // si el texto del html actual es igual al de algun elemento
     // del array, entonces volver true a ese elemento del array
 
 addBtn
+  agregar al array
+  render
 
-
-
+// Show task in different color
+        task.classList.add('selected');
+        // Change isSelected value to true
+        elementTask[1] = true;
+        console.log(lState.taskList);
 
 */

@@ -1,11 +1,12 @@
 const state = {
   taskList: [],
+  currentTask: 0,
   filters: ['all', 'completed','active'],
   currentFilter: 'all',
   loading: true,
 };
 
-
+/*
 const request = fetch('https://raw.githubusercontent.com/samuelchvez/todos-fake-json-api/master/db.json');
 
 request
@@ -18,7 +19,7 @@ request
         state.loading = false,
             console.log(state)
 });
-
+*/
 
 const render = lState => {
 
@@ -65,7 +66,21 @@ const render = lState => {
   bottomBar.appendChild(taskInput);
   bottomBar.appendChild(addBtn);
 
+
+
+
+
+
+
+
+
+
+
+
+
   let taskTxt;
+
+
 
   if (lState.currentFilter === 'all'){
   // Render all
@@ -86,7 +101,6 @@ const render = lState => {
             lState.taskList[i][1] = true;
           }
           console.log(lState.taskList);
-          render(lState);
         };
       }
     }
@@ -103,16 +117,15 @@ const render = lState => {
           let task = document.createElement('li');
           task.textContent  = lState.taskList[i][0];
           tasks.appendChild(task);
-          // Show task in different color
-          task.classList.add('selected');
 
           // Allow task to be selected
           task.onclick = () => {
+            // Show task in different color
+            task.classList.add('selected');
             if (lState.taskList[i][0] === task.textContent){
               lState.taskList[i][1] = true;
             }
             console.log(lState.taskList);
-            render(lState);
           };
         } 
       }
@@ -138,41 +151,52 @@ const render = lState => {
               lState.taskList[i][1] = true;
             }
             console.log(lState.taskList);
-            render(lState);
           };
         } 
       }
     }
   }
 
-  // --------------------- Events ------------------------
 
-  addBtn.onclick = () => {  
+
+
+
+  // Events
+
+  addBtn.onclick = () => {
+    
     taskTxt = taskInput.value;
     console.log(taskTxt);
+
     // Delete input box content
     taskInput.value = '';
+
     // Add task to array and add nonselected value
     let elementTask = new Array(taskTxt, false);
     lState.taskList.push(elementTask);
     console.log(lState.taskList);
+
     render(lState);
+
   };
 
   // Show all tasks
   allBtn.onclick = () => {
+    console.log("all");
     lState.currentFilter = lState.filters[0];
     render(lState);
   };
 
   // Show all selected tasks
   completedBtn.onclick = () => { 
+    console.log("completed");
     lState.currentFilter = lState.filters[1];
     render(lState);
   };
 
   // Show all non selected tasks
   activeBtn.onclick = () => {
+    console.log("active");
     lState.currentFilter = lState.filters[2];
     render(lState);
   };
